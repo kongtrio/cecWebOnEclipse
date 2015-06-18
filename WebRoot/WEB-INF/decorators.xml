@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<decorators defaultdir="/WEB-INF/">
+    <decorator name="main" page="backstage.jsp">
+        <pattern>/manage/*</pattern>
+    </decorator>
+</decorators>

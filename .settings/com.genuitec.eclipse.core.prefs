@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/WEB-INF/index,src/struts.xml,WebRoot/js,WebRoot/WEB-INF/manager,WebRoot/ueditor
+validator.Unchecked=

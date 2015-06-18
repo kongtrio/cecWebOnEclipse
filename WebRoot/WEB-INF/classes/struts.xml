@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.multipart.maxSize" value="10000000"/>
+    <!--定义个父包,定义一些全局result-->
+    <package name="parent" extends="struts-default">
+        <global-results>
+            <!--<result name="indexPage">WEB-INF/index/index.jsp</result>-->
+            <result name="indexPage">WEB-INF/index/index.jsp</result>
+            <result name="isSchool">WEB-INF/index/index.jsp</result>
+            <result name="noPass">error.jsp</result>
+        </global-results>
+    </package>
+
+    <!--前台的action-->
+    <package name="cecCustom" namespace="/" extends="parent">
+        <action name="index" class="genalAction">
+        </action>
+
+        <action name="showColumn*" class="columnAction" method="{1}">
+            <result name="column">WEB-INF/index/column.jsp</result>
+            <result name="toArt" type="chain">showArticle</result>
+            <result name="error" type="redirect">index</result>
+        </action>
+
+        <action name="indexArticle*" class="indexAriticleAction" method="{1}">
+            <result name="indexArticle">WEB-INF/index/indexArticle.jsp</result>
+            <result name="error" type="redirect">index</result>
+        </action>
+
+
+        <action name="showArticle*" class="articleAction" method="{1}">
+            <result name="article">WEB-INF/index/article.jsp</result>
+            <result name="error" type="redirect">index</result>
+        </action>
+
+        <action name="searchArticle*" class="searchArticleAction" method="{1}">
+            <result name="articles">WEB-INF/index/searchArticle.jsp</result>
+            <result name="error" type="redirect">showColumn</result>
+        </action>
+
+        <action name="login*" class="loginAction" method="{1}">
+            <result name="success" type="redirect">manage/artManage-toAdd</result>
+            <result name="toLogin">WEB-INF/index/login.jsp</result>
+        </action>
+    </package>
+
+    <!--后台的action-->
+    <package name="cec" namespace="/manage" extends="parent">
+        <action name="columnManage-*" class="artColumnAction" method="{1}">
+            <result name="addColumn">../WEB-INF/manager/columnAdd.jsp</result>
+            <result name="showColmun">../WEB-INF/manager/showColumn.jsp</result>
+        </action>
+
+        <action name="columnRightManage-*" class="columnRightAction" method="{1}">
+            <result name="columnRight">../WEB-INF/manager/columnRight.jsp</result>
+        </action>
+
+        <action name="artManage-*" class="artAction" method="{1}">
+            <interceptor-ref name="fileUpload">
+                <!--可以设置成自己的配置，想文件类型和大小等限制-->
+                <param name="maximumSize">20971520</param>
+                <param name="allowedTypes">application/x-bmp,
+                    image/jpeg,image/png,image/gif,video/mp4
+                </param>
+                <!--容许文件类型为doc,ppt,xls,pdf,txt,java-->
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <result name="alterView">../WEB-INF/manager/alterArticle.jsp</result>
+            <result name="artManage">../WEB-INF/manager/showArticle.jsp</result>
+            <result name="addArticle">../WEB-INF/manager/articleAdd.jsp</result>
+            <result name="addSuc" type="redirect">artManage-toAdd</result>
+        </action>
+
+        <action name="user-*" class="userAction" method="{1}">
+            <result name="state">../WEB-INF/manage/backstage.jsp</result>
+            <result name="user">../WEB-INF/manager/showUser.jsp</result>
+            <result name="addUser">../WEB-INF/manager/userAdd.jsp</result>
+            <result name="toIndex" type="redirect">../index</result>
+        </action>
+
+        <action name="topManage-*" class="topAction" method="{1}">
+            <result name="topPage">../WEB-INF/manager/top.jsp</result>
+        </action>
+
+        <action name="friendlink*" class="friendLinkAction" method="{1}">
+            <result name="friendlink">../WEB-INF/manager/friendlink.jsp</result>
+            <result name="add">../WEB-INF/manager/linkAdd.jsp</result>
+        </action>
+
+        <action name="ipcontrol*" class="ipControlAction" method="{1}">
+            <result name="toPage">../WEB-INF/manager/ipControl.jsp</result>
+            <result name="friendlink">../WEB-INF/manager/friendlink.jsp</result>
+            <result name="add">../WEB-INF/manager/linkAdd.jsp</result>
+        </action>
+
+    </package>
+</struts>    

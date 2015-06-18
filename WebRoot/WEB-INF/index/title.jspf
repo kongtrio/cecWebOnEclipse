@@ -1,0 +1,31 @@
+<%@ page language="java" import="java.util.*" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<section class="title">
+    <div class="continer">
+        <div class="logo1">
+            <a href="<%=basePath%>"><img class="logo11" src="images/logo.png" width="75px" height="75px"></a>
+
+            <div class="logo12">
+                <span class="span11">计算机工程学院</span><br>
+                <span class="span12">Computer engineering college</span>
+            </div>
+        </div>
+        <div class="logo2">
+            <div class="logo21">
+                <span class="span21"><a href="<%=basePath%>showColumn?colId=47">院务公开</a></span><br>
+                <span class="span22">College task disclosure</span>
+            </div>
+        </div>
+        <div class="logo3">
+            <div class="logo31">
+                <span class="span31"><a href="http://210.34.154.198/" target="_blank">实验室建设</a></span><br>
+                <span class="span32">Laboratory construction</span>
+            </div>
+        </div>
+        <div class="logo4">
+            <div class="logo41">
+                <span class="span41"><a href="http://cec.jmu.edu.cn/px/" target="_blank">就业培训</a></span><br>
+                <span class="span42">Training&Jobs</span>
+            </div>
+        </div>
+    </div>
+</section>

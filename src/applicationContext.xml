@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+<!-- 事务 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<aop:config>
+		<aop:pointcut id="productServiceMethods"
+			expression="execution(* cn.edu.jmu.cec.service.*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="productServiceMethods" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+	
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="BaseDAO" class="cn.edu.jmu.cec.dao.impl.BaseDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+<!-- DAO配置 -->
+	<bean id="UsersDAO" class="cn.edu.jmu.cec.dao.impl.UsersDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="ArticleDAO" class="cn.edu.jmu.cec.dao.impl.ArticleDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="FriendLinkDAO" class="cn.edu.jmu.cec.dao.impl.FriendLinkDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="ColmunRightDAO" class="cn.edu.jmu.cec.dao.impl.ColmunRightDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="ArtColumnDAO" class="cn.edu.jmu.cec.dao.impl.ArtColumnDAOImpl"
+		parent="BaseDAO">
+	</bean>
+	<bean id="IPControlDAO" class="cn.edu.jmu.cec.dao.impl.IPControlDAOImpl"
+		  parent="BaseDAO">
+	</bean>
+
+
+<!-- Service配置 -->
+	<bean class="cn.edu.jmu.cec.service.impl.UsersServiceImpl" id="UsersService">
+		<property name="usersDAO" ref="UsersDAO"></property>
+	</bean>
+
+	<bean class="cn.edu.jmu.cec.service.impl.ArticleServiceImpl" id="ArticleService">
+		<property name="articleDAO" ref="ArticleDAO"></property>
+	</bean>
+
+	<bean class="cn.edu.jmu.cec.service.impl.FriendLinkServiceImpl"
+		id="FriendLinkService">
+		<property name="friendLinkDAO" ref="FriendLinkDAO"></property>
+	</bean>
+
+	<bean class="cn.edu.jmu.cec.service.impl.IPControlSeviceImpl"
+		  id="IPControlSevice">
+		<property name="ipControlDAO" ref="IPControlDAO"></property>
+	</bean>
+
+	<bean class="cn.edu.jmu.cec.service.impl.ColmunRightServiceImpl"
+		id="ColmunRightService">
+		<property name="columnRightDAO" ref="ColmunRightDAO"></property>
+	</bean>
+
+	<bean class="cn.edu.jmu.cec.service.impl.ArtColumnServiceImpl" id="ArtColumnService">
+		<property name="artColumnDAO" ref="ArtColumnDAO"></property>
+        <property name="articleDAO" ref="ArticleDAO"></property>
+	</bean>
+
+    <!--action配置-->
+	<bean class="cn.edu.jmu.cec.action.manage.ArtColumnAction" id="artColumnAction"
+		  scope="prototype" parent="baseAction">
+	</bean>
+
+	<!--管理员管理访问者IP-->
+	<bean class="cn.edu.jmu.cec.action.manage.IPControlAction" id="ipControlAction"
+		  scope="prototype" parent="baseAction">
+	</bean>
+    <!--管理员管理用户-->
+	<bean class="cn.edu.jmu.cec.action.manage.UsersAction" id="userAction"
+		scope="prototype" parent="baseAction">
+	</bean>
+
+    <!--管理员管理新闻-->
+    <bean class="cn.edu.jmu.cec.action.manage.ArtAction" id="artAction"
+          scope="prototype" parent="baseAction">
+    </bean>
+    <!--管理员管理管理置顶-->
+    <bean class="cn.edu.jmu.cec.action.manage.TopAction" id="topAction"
+          scope="prototype" parent="baseAction">
+    </bean>
+	<!--管理员管理栏目权限置顶-->
+	<bean class="cn.edu.jmu.cec.action.manage.ColumnRightAction" id="columnRightAction"
+		  scope="prototype" parent="baseAction">
+	</bean>
+	<!--管理员管理友情链接置顶-->
+	<bean class="cn.edu.jmu.cec.action.manage.FriendLinkAction" id="friendLinkAction"
+		  scope="prototype" parent="baseAction">
+	</bean>
+
+    <!--跳转首页处理的action-->
+    <bean class="cn.edu.jmu.cec.action.GenalAction" id="genalAction"
+          scope="prototype" parent="baseAction">
+    </bean>
+
+    <!--跳转首页栏目处理的action-->
+    <bean class="cn.edu.jmu.cec.action.ColumnAction" id="columnAction"
+          scope="prototype" parent="baseAction">
+    </bean>
+
+	<!--跳转更多的通知公告处理的action-->
+	<bean class="cn.edu.jmu.cec.action.IndexArticleAction" id="indexAriticleAction"
+		  scope="prototype" parent="baseAction">
+	</bean>
+
+	<!--跳转搜索新闻处理的action-->
+	<bean class="cn.edu.jmu.cec.action.SearchArticleAction" id="searchArticleAction"
+		  scope="prototype" parent="baseAction">
+	</bean>
+
+    <!--跳转到显示文章处理的action-->
+    <bean class="cn.edu.jmu.cec.action.ArticleAction" id="articleAction"
+          scope="prototype" parent="baseAction">
+    </bean>
+
+    <!--处理登陆的action-->
+    <bean class="cn.edu.jmu.cec.action.LoginAction" id="loginAction"
+          scope="prototype" parent="baseAction">
+    </bean>
+
+
+	<bean class="cn.edu.jmu.cec.action.BaseAction" id="baseAction"
+		scope="prototype" abstract="true">
+		<property name="usersService" ref="UsersService"></property>
+		<property name="articleService" ref="ArticleService"></property>
+		<property name="artColumnSevice" ref="ArtColumnService"></property>
+		<property name="colmunRightService" ref="ColmunRightService"></property>
+		<property name="friendLinkService" ref="FriendLinkService"></property>
+		<property name="ipControlSevice" ref="IPControlSevice"></property>
+	</bean>
+
+
+</beans>

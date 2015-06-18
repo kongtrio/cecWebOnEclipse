@@ -1,0 +1,199 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: #d3d3d4;
+}
+
+.top {
+    width: 100%;
+    height: 72px;
+    background-color: #ffffff;
+    margin-top: -10px;
+    border-bottom: 1px solid #b6b6b6;
+}
+
+.top ul {
+    margin-left: 153px;
+}
+
+.top ul li {
+    display: block;
+    float: left;
+    border-top: 6px solid transparent;
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-top: 28px;
+    font-size: 25px;
+}
+
+.top ul li:hover {
+    cursor: Pointer;
+}
+
+.top ul li a {
+    text-decoration: none;
+}
+
+#active {
+    color: #09acf2;
+    border-color: #09acf2;
+}
+
+.main {
+    height: 100%;
+    width: calc(100% - 20px);
+    margin-top: 20px;
+    margin-left: 20px;
+    display: none;
+}
+
+.main .type {
+    width: 83%;
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dbdadb;
+}
+
+.type select {
+    margin-left: 20px;
+    margin-top: 18px;
+    width: 290px;
+    height: 30px;
+}
+
+.clean {
+    margin-top: 18px;
+    margin-right: 10px;
+    border: 0;
+    width: 55px;
+    height: 25px;
+    float: right;
+    color: #ffffff;
+    background-color: #ed5565;
+}
+
+.title {
+    width: 83%;
+    height: 78px;
+    padding-top: 10px;
+    font-size: 21px;
+    background-color: #ffffff;
+}
+
+.data_col {
+    margin: 20px 50px;
+    height: 30px;
+}
+
+.myspan {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 27px;
+}
+
+.title input {
+    width: 400px;
+    background-color: #09acf2;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-left: 30px;
+}
+
+.title select {
+    margin-left: 60px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#editor {
+    width: 83%;
+    height: 450px;
+}
+
+.submit {
+    margin-top: 100px;
+    font-size: 20px;
+    padding: 8px 45px;
+    width: 200px;
+    border: 0;
+    color: #393939;
+    background-color: #09acf2;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.display {
+    display: block;
+}
+
+.seach {
+    width: 83%;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.seach select {
+    margin-left: 20px;
+    margin-top: 18px;
+    width: 200px;
+    height: 30px;
+}
+
+.inup-search {
+    width: 250px;
+    height: 30px;
+    margin-top: 15px;
+    float: right;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.btn-seach {
+    float: right;
+    border: 0;
+    color: #ffffff;
+    background-color: #09acf2;
+    width: 60px;
+    margin-top: 15px;
+    margin-right: 10px;
+    height: 30px;
+    -moz-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+}
+
+.list {
+    width: 83%;
+    background-color: #ffffff;
+}
+
+.list table {
+    padding-top: 10px;
+    text-align: left;
+}
+
+.list .check {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.list .opera {
+    padding: 3px;
+    border: 0;
+    color: #ffffff;
+    font-size: 5px;
+    background-color: #09acf2;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#pagination ul li a {
+    color: #000000;
+}
+
+
