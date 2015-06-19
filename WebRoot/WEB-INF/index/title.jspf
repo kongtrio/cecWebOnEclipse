@@ -23,7 +23,7 @@
         </div>
         <div class="logo4">
             <div class="logo41">
-                <span class="span41"><a href="http://cec.jmu.edu.cn/px/" target="_blank">就业培训</a></span><br>
+                <span class="span41"><a href="<%=basePath%>showColumn?colId=61" target="_blank">就业培训</a></span><br>
                 <span class="span42">Training&Jobs</span>
             </div>
         </div>

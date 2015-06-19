@@ -241,6 +241,8 @@
             }
             if(isNewTab!=8){
                 $("#content").val(htmlEncode(content));
+            }else{
+                $("#content").val(content);
             }
         }
 

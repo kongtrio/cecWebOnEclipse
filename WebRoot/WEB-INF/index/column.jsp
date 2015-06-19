@@ -27,11 +27,11 @@
         <ul class="nav-item">
             <li><a href="<%=basePath%>">学院首页</a></li>
             <s:iterator value="#request.navColumn" id="item">
-                <li><a <s:if test="#item.isNewWindows==true">target="_blank"</s:if>  href="<s:if test="#item.isAddress==true">http://${item.outAddress} </s:if><s:else><%=basePath%>showColumn?colId=${item.columnId}</s:else>">${item.colName}</a>
+                <li><a <s:if test="#item.isNewWindows==true">target="_blank"</s:if>  href="<s:if test="#item.isAddress==true">${item.outAddress} </s:if><s:else><%=basePath%>showColumn?colId=${item.columnId}</s:else>">${item.colName}</a>
                     <s:if test="#item.artColumns.size() != 0">
                         <ul class="second-level">
                             <s:iterator value="#item.artColumns" id="col">
-                                <li><a <s:if test="#col.isNewWindows==true">target="_blank"</s:if> href="<s:if test="#col.isAddress==true">http://${col.outAddress} </s:if><s:else><%=basePath%>showColumn?colId=${col.columnId}</s:else>">${col.colName} </a></li>
+                                <li><a <s:if test="#col.isNewWindows==true">target="_blank"</s:if> href="<s:if test="#col.isAddress==true">${col.outAddress} </s:if><s:else><%=basePath%>showColumn?colId=${col.columnId}</s:else>">${col.colName} </a></li>
                             </s:iterator>
                         </ul>
                     </s:if>
@@ -72,7 +72,7 @@
         <ul class="liebiao">
             <s:iterator value="#request.articles" id="x">
                 <li><a target="_blank"
-                       href="<s:if test="#x.isAddress==true">http://${x.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${x.artId}</s:else>">${x.title}</a>
+                       href="<s:if test="#x.isAddress==true">${x.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${x.artId}</s:else>">${x.title}</a>
                     <span style="margin-left: 30px;float: right;">
                     <s:date name="#x.publicTime" format="yyyy/MM/dd"/></span>
                     <s:if test="#x.isMark==true"><img src="images/ic05.gif" height="15px;" title="醒目"></s:if>
@@ -99,7 +99,7 @@
                         <s:iterator value="#child.listArticles" id="item">
                             <li>
                                 <a target="_blank"
-                                   href="<s:if test="#item.isAddress==true">http://${item.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${item.artId}</s:else>"
+                                   href="<s:if test="#item.isAddress==true">${item.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${item.artId}</s:else>"
                                    >
                                     ▶${item.title}</a>
                                 <span class="mmdd"><s:date name="#request.item.publicTime" format="MM-dd"/></span>

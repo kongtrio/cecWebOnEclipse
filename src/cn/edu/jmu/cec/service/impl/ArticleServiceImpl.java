@@ -41,6 +41,11 @@ public class ArticleServiceImpl implements ArticleService {
     public void save(Article article) {
         if (article.getIsAddress() && article.getOutAddress() != null) {
             article.setContent("");
+            String outAddress = article.getOutAddress();
+            if(!outAddress.contains("http")){
+                outAddress = "http://" + outAddress;
+                article.setOutAddress(outAddress);
+            }
         } else {
             article.setOutAddress("");
         }

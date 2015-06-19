@@ -44,12 +44,18 @@ public class ArticleAction extends BaseAction<Article> implements
         if (article != null) {
             String content1 = article.getContent();
             String content = "";
+            //识别原来的资源路径(原来的资源路径都是upload/.....)，修改成自己的项目名称+upload/....
             if(!content1.contains("http") && content1.contains("/upload")){
                 content = article.getContent().replaceAll("/upload", basePath + "upload");
             }else{
                 content = article.getContent();
             }
-//            article.setContent(content);
+
+            //这个是给表格加上线框，默认的是不显示线框的
+            if(content.contains("table")){
+                content = content.replaceAll("table","table border=\"1\"");
+            }
+
             Article art = new Article();
             art.setAuthor(article.getAuthor());
             art.setContent(content);
