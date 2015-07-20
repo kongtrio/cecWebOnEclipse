@@ -16,8 +16,9 @@
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
     <meta http-equiv="expires" content="0">
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!--[if lte IE 8]>
+    <script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+    <![endif]-->
 </head>
 <body>
 <section class="nav">
@@ -51,7 +52,6 @@
 <section class="pic"></section>
 <section class="menu">
     <div class="continer">
-        <span style="color: #ff0000">(建议使用谷歌火狐浏览器) </span>
         <span style="color: #ffffff">[会议通知]</span><img class="laba" src="images/icon.gif" alt=""/>
         <a id="tongzhi" target="_blank" href="<%=basePath%>showArticle?articleId=${topArticle.artId}" style="color: #ffffff;">
             ${topArticle.title}</a>
@@ -207,10 +207,10 @@
             <div class="guanzhu">关注我们</div>
             <ul id="card">
                 <li id="card1" class="cardnon display-non">
-                    <a href="#">集美大学官方微博</a><br/>
+                    <a href="http://weibo.com/jmuxcbxwwb?c=spr_qdhz_bd_baidusmt_weibo_s&sudaref=www.baidu.com&nick=%E9%9B%86%E7%BE%8E%E5%A4%A7%E5%AD%A6">集美大学官方微博</a><br/>
                 </li>
                 <li id="card2" class="cardnon">
-                    <a href="#">集美大学官方微信</a><br/>
+                    <a href="http://weixin.hlo.cc/">集美大学官方微信</a><br/>
                 </li>
                 <li id="card3" class="cardnon">
                     <a href="http://tieba.baidu.com/f?ie=utf-8&kw=%E9%9B%86%E7%BE%8E%E5%A4%A7%E5%AD%A6&fr=search">集美大学官方贴吧</a><br/>
@@ -222,26 +222,15 @@
 </footer>
 
 
-<script src="<%=basePath%>js/jquery.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/jquery.easing.1.3.min.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/index.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/cecCommon.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/jquery.slides.min.js"></script>
 <script>
     function submitForm(){
-        $("form")
+        $("form");
     }
-
-    $("a").each(function(){
-        if(this.id!="tongzhi"){
-            var str = this.text;
-            if(str.trim().length>13){
-                var substr = str.trim().substr(0,13);
-                this.text = substr + "...";
-            }
-        }
-    });
-
 </script>
 </body>
 

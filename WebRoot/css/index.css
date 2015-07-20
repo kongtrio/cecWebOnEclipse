@@ -108,6 +108,9 @@ a{color: black}
     padding-bottom: 4px;
     float: left;
 }
+.logo2, .logo3, .logo4 {
+  padding-bottom: 6px !important;
+}
 .logo1{
     width: 350px;
     border-bottom: 8px solid #025195;
@@ -378,7 +381,7 @@ footer a:active{
     float: left;
     margin-left: 20px;
     margin-top: 15px;
-    width: 140px;
+    width: 150px;
     font-size: 15px;
 }
 .link span{

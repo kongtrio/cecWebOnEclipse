@@ -1,3 +1,19 @@
+
+//通知字数
+var str = $("#tongzhi");
+if(str.text().length>46)
+    str.text(str.text().substr(0,46)+"...");
+window.onload=function(){
+	//新闻字数
+	$(".main>li>a").each(function(){
+		var txt=$(this).text();
+		if(txt.length>44){
+			$(this).text(txt.substr(0,44)+"...");
+		}
+	  });
+}
+
+
 //格式化日期
 Date.prototype.Format = function (fmt) { //author: meizz
     var o = {

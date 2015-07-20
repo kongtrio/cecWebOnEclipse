@@ -1,16 +1,12 @@
 /**
  * Created by manggo on 2015/5/5.
  */
+
 //二级菜单
 $(".nav-item >li").mouseover(function(){
     $(this).find('.second-level').slideDown();});
 $(".nav-item >li").mouseleave(function(){
     $(this).find('.second-level').slideUp();});
-
-//通知字数
-var str = $("#tongzhi");
-if(str.text().length>46)
-    str.text(str.text().substr(0,46)+"...");
 
 //选项卡
 $("#label li").mouseover(function(){
