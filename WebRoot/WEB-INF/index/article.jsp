@@ -16,8 +16,26 @@
     <title>集美大学计算机工程学院</title>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>css/newsinfo.css"/>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit" /> 
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <!--[if lt IE9]>
+    <script>
+        (function() {
+            if (!
+                        /*@cc_on!@*/
+                            0) return;
+            var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+            var i= e.length;
+            while (i--){
+                document.createElement(e[i])
+            }
+        })()
+    </script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+    <![endif]-->
+    
 </head>
 <body>
 <section class="nav">

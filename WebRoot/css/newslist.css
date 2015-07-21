@@ -175,7 +175,9 @@ a{color: black}
     font-size: 14px;
     font-weight: bold;
 }
-
+.logo2, .logo3, .logo4 {
+  padding-bottom: 6px !important;
+}
 .pic{
     width: 100%;
     margin-top: -29px;

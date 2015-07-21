@@ -12,13 +12,39 @@
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>css/index.css"/>
     <title>集美大学计算机工程学院</title>
-    <meta name="renderer" content="webkit">
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="cache-control" content="no-cache">
-    <meta http-equiv="expires" content="0">
-    <!--[if lte IE 8]>
+    <meta name="renderer" content="webkit" /> 
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <!--[if lt IE9]>
+    <script>
+        (function() {
+            if (!
+                        /*@cc_on!@*/
+                            0) return;
+            var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+            var i= e.length;
+            while (i--){
+                document.createElement(e[i])
+            }
+        })()
+    </script>
+    <![endif]-->
+    <!--[if lt IE 8]>
     <script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
     <![endif]-->
+    <style>
+    .lstr{
+		  display: inline-block;
+		  white-space: nowrap;
+		  width: 232px;
+		  height: 20px;
+		  line-height: 20px;
+		  text-overflow: ellipsis;
+		  -moz-text-overflow: ellipsis;
+		  overflow: hidden;
+    }
+    </style>
 </head>
 <body>
 <section class="nav">
@@ -66,7 +92,7 @@
             <ul class="main">
                 <s:iterator value="#request.indexArticle" id="item">
                     <li>
-                        <a target="_blank"
+                        <a class="lstr" target="_blank"
                            href="<s:if test="#item.isAddress==true">${item.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${item.artId}</s:else>">
                             ▶${item.title}</a>
                         <span class="mmdd"><s:date name="#request.item.publicTime" format="MM-dd"/></span>
@@ -99,7 +125,7 @@
             <ul class="main">
                 <s:iterator value="#new2.listArticles" id="item">
                     <li>
-                        <a target="_blank"
+                        <a class="lstr" target="_blank"
                            href="<s:if test="#item.isAddress==true">${item.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${item.artId}</s:else>">
                             ▶${item.title}</a>
                         <span class="mmdd"><s:date name="#request.item.publicTime" format="MM-dd"/></span>
@@ -117,7 +143,7 @@
             <ul class="main">
                 <s:iterator value="#new3.listArticles" id="item">
                     <li>
-                        <a target="_blank"
+                        <a class="lstr" target="_blank"
                            href="<s:if test="#item.isAddress==true">${item.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${item.artId}</s:else>">
                             ▶${item.title}</a>
                         <span class="mmdd"><s:date name="#request.item.publicTime" format="MM-dd"/></span>
@@ -135,7 +161,7 @@
             <ul class="main">
                 <s:iterator value="#new4.listArticles" id="item">
                     <li>
-                        <a target="_blank"
+                        <a class="lstr" target="_blank"
                            href="<s:if test="#item.isAddress==true">${item.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${item.artId}</s:else>">
                             ▶${item.title}</a>
                         <span class="mmdd"><s:date name="#request.item.publicTime" format="MM-dd"/></span>
@@ -153,7 +179,7 @@
             <ul class="main">
                 <s:iterator value="#new5.listArticles" id="item">
                     <li>
-                        <a target="_blank"
+                        <a class="lstr" target="_blank"
                            href="<s:if test="#item.isAddress==true">${item.outAddress} </s:if><s:else><%=basePath%>showArticle?articleId=${item.artId}</s:else>">
                             ▶${item.title}</a>
                         <span class="mmdd"><s:date name="#request.item.publicTime" format="MM-dd"/></span>

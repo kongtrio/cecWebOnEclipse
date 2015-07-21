@@ -16,9 +16,14 @@
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="cache-control" content="no-cache">
   <meta http-equiv="expires" content="0">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="renderer" content="webkit" /> 
+  <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+	<!--[if lt IE 8]>
+	<script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+	<![endif]-->
+    
 </head>
+
 <BODY id=loginFrame>
 <input type="hidden" id="result" value="<s:property value='#request.result'/>"/>
 <DIV id=header>

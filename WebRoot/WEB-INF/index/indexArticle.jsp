@@ -18,8 +18,26 @@
     <link rel="stylesheet" href="<%=basePath%>css/newslist.css"/>
     <link rel="stylesheet" href="<%=basePath%>css/section.css"/>
     <link href="<%=basePath%>css/page.css" rel="stylesheet" type="text/css"/>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="renderer" content="webkit" /> 
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <!--[if lt IE9]>
+    <script>
+        (function() {
+            if (!
+                        /*@cc_on!@*/
+                            0) return;
+            var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+            var i= e.length;
+            while (i--){
+                document.createElement(e[i])
+            }
+        })()
+    </script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <script>window.location.href = 'http://cdn.dmeng.net/upgrade-your-browser.html?referrer=' + location.href;</script>
+    <![endif]-->
+    
 </head>
 <body>
 <section class="nav">
