@@ -37,7 +37,7 @@
     .lstr{
 		  display: inline-block;
 		  white-space: nowrap;
-		  width: 232px;
+		  width: 221px;
 		  height: 20px;
 		  line-height: 20px;
 		  text-overflow: ellipsis;
